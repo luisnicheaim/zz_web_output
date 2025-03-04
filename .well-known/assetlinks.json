@@ -1,0 +1,63 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nicheaim.zafezones_nicheaim",
+      "sha256_cert_fingerprints": [
+        "6B:47:73:F0:87:C8:D4:04:BB:E4:8A:6E:95:4B:53:33:3A:E4:9C:11:BC:CD:EA:C3:44:8A:5F:F3:C2:3B:29:B2"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nicheaim.zafezones_nicheaim",
+      "sha256_cert_fingerprints": [
+        "EA:27:D4:74:56:A2:B2:D7:51:F0:B7:E5:A5:E6:6F:0A:2D:7D:47:5D:3F:77:71:B1:54:95:87:3E:9D:8B:18:6F"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.example.deep_link_poc",
+      "sha256_cert_fingerprints": [
+        "00:A1:6C:18:28:FC:B9:85:1B:9E:94:74:47:19:2C:AE:EF:29:9F:77:5D:0A:2F:82:15:4F:27:2C:2A:92:2B:7E"
+      ]
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "web",
+      "site": "https://zafezone.app"
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "web",
+      "site": "https://dev.zafezone.app"
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "web",
+      "site": "https://stage.zafezone.app"
+    }
+  },
+  {
+    "relation": ["delegate_permission/common.get_login_creds"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "com.nicheaim.zafezones_nicheaim",
+      "sha256_cert_fingerprints": [
+        "6B:47:73:F0:87:C8:D4:04:BB:E4:8A:6E:95:4B:53:33:3A:E4:9C:11:BC:CD:EA:C3:44:8A:5F:F3:C2:3B:29:B2"
+      ]
+    }
+  }
+]

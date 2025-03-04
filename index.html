@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- Workaround to newer version of camScanner https://github.com/juliansteenbakker/mobile_scanner/issues/622 -->
+    <script
+      type="text/javascript"
+      src="https://unpkg.com/@zxing/library@0.20.0/umd/index.min.js"
+    ></script>
+    <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+
+    This is a placeholder for base href that will be replaced by the value of
+    the `--base-href` argument provided to `flutter build`.
+  -->
+
+    <base href="/zz_web_output/" />
+
+    <meta charset="UTF-8" />
+    <meta content="IE=Edge" http-equiv="X-UA-Compatible" />
+    <title>ZafeZone</title>
+    <meta name="title" content="ZafeZone" />
+    <meta
+      name="description"
+      content="Track COVID cases in everyplace where you are."
+    />
+
+    <!-- GOOGLE SIGN IN WITH WEB -->
+    <!-- <meta
+      name="google-signin-client_id"
+      content="392862917568-se8voov7ocv6rblhkpva1n01f36aueh5.apps.googleusercontent.com"
+    /> -->
+    <!-- iOS meta tags & icons -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="apple-mobile-web-app-title" content="ZafeZone" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://zafezone.app/" />
+    <meta property="og:title" content="ZafeZone" />
+    <meta
+      property="og:description"
+      content="Track COVID cases in everyplace where you are."
+    />
+    <meta
+      property="og:image"
+      content="https://live.staticflickr.com/65535/52474483034_51b5f86cac_h.jpg"
+    />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://zafezone.app/" />
+    <meta property="twitter:title" content="ZafeZone" />
+    <meta
+      property="twitter:description"
+      content="Track COVID cases in everyplace where you are."
+    />
+    <meta
+      property="twitter:image"
+      content="https://live.staticflickr.com/65535/52474483034_51b5f86cac_h.jpg"
+    />
+    <!-- Favicon -->
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="icon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="icon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="icon/favicon-16x16.png"
+    />
+
+    <link rel="mask-icon" href="icon/safari-pinned-tab.svg" color="#5bbad5" />
+    <link rel="shortcut icon" href="icon/favicon.ico" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="msapplication-config" content="icon/browserconfig.xml" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link rel="manifest" href="manifest.json" />
+    <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBa4mGGjOXIJ3kh2_ABrvzWpr4nSMyhOQI"></script> -->
+    <!-- <script src="https://cdn.jsdelivr.net/npm/dynamsoft-javascript-barcode@9.0.0/dist/dbr.js"></script> -->
+    <!-- <script src="https://yushulx.me/javascript-barcode-qr-code-scanner/dbr-scanner-wrapper.js"></script> -->
+
+    <script>
+      // The value below is injected by flutter build, do not touch.
+      const serviceWorkerVersion = "2974764928";
+    </script>
+    <!-- This script adds the flutter initialization JS code -->
+    <script src="flutter.js" defer></script>
+    <!-- <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/firebase-messaging-sw.js');
+        });
+      }
+    </script> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+  </head>
+  <body>
+    <!-- <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script> -->
+    <!-- <script>
+      var firebaseConfig = {
+        apiKey: "AIzaSyD1dtds4Kf2eeuOLxPFtqFAuRZAkX68cog",
+        appId: '1:392862917568:web:a33f1ef685a34122fc1e25',
+        messagingSenderId: '392862917568',
+        projectId: 'nicheaim-zafezones-dev',
+        authDomain: 'nicheaim-zafezones-dev.firebaseapp.com',
+        storageBucket: 'nicheaim-zafezones-dev.appspot.com',
+  };
+
+      // Initialize Firebase
+      firebase.initializeApp(firebaseConfig);
+    </script> -->
+
+    <style>
+      body {
+        height: 100vh;
+        width: 100vw;
+        margin: 0;
+      }
+
+      .main-content {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: opacity 0.4s ease-out;
+      }
+    </style>
+
+    <script>
+      function delay(time) {
+        return new Promise((resolve) => setTimeout(resolve, time));
+      }
+
+      window.addEventListener('load', function (ev) {
+        var loaderContent = document.querySelector('#loader-content');
+        // Download main.dart.js
+        _flutter.loader
+          .loadEntrypoint({
+            serviceWorker: {
+              serviceWorkerVersion: serviceWorkerVersion,
+            },
+          })
+          .then(function (engineInitializer) {
+            return engineInitializer.initializeEngine();
+          })
+          .then(async function (appRunner) {
+            loaderContent.style.opacity = '0';
+            await delay(400);
+            return appRunner.runApp();
+          });
+      });
+    </script>
+    <div class="main-content" id="loader-content">
+      <img src="logo.png" alt="Logo" height="200px" />
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.js"
+      type="text/javascript"
+    ></script>
+    
+    <script type="text/javascript">
+      pdfjsLib.GlobalWorkerOptions.workerSrc =
+        'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/build/pdf.worker.min.js';
+      pdfRenderOptions = {
+        cMapUrl: 'https://cdn.jsdelivr.net/npm/pdfjs-dist@2.12.313/cmaps/',
+        cMapPacked: true,
+      };
+    </script>
+
+    <script src="main.dart.js" type="application/javascript"></script>
+    <script src="rules.js" type="application/javascript" defer></script>
+  </body>
+</html>
